@@ -14,6 +14,7 @@ void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 void averageAge(const list<Goat>& );
+void highAge( const list<Goat>& );
 int main_menu();
 
 int main() {
@@ -47,7 +48,7 @@ int main() {
     
     // Goat Manager 3001 Engine
     int sel = main_menu();
-    while (sel != 5) {
+    while (sel != 11) {
         switch (sel) {
             case 1:
                 cout << "Adding a goat.\n";
@@ -64,7 +65,11 @@ int main() {
             case 4:    
                 cout << "Average age.\n";
                 averageAge(trip);
-                break;    
+                break;  
+            case 5:    
+                cout << "Average age.\n";
+                averageAge(trip);
+                break;        
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -86,7 +91,7 @@ int main_menu() {
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 5) {
+    while (choice < 1 || choice > 11) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
