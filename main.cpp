@@ -201,7 +201,17 @@ void findGoat(const list<Goat>& trp){
 void allGoatSameAge(const list<Goat>& trp){
     int age;
     cout << "You have the choice to make all the goats the same age (0-20)" << endl;
-    fill(trp.begin(), trp.end(), [age](  Goat& g){
+    cout << "Your choice: ";
+    cin >> age;
+    while (age < 0 || age > 20) {
+        cout << "Invalid age. Please enter a value between 0 and 20: ";
+        cin >> age;
+    }
 
-    });
+    string name = trp.front().get_name();
+    string color = trp.front().get_color();
+
+    Goat g(name, age, color);
+    
+    fill(trp.begin(), trp.end(), g);
 }
