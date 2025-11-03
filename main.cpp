@@ -108,7 +108,8 @@ int main_menu() {
     cout << "[3] List goats\n";
     cout << "[4] Average age\n";
     cout << "[5] High age\n";
-    cout << "[6] Quit\n";
+    cout << "[6] Find Goat.\n";
+    cout << "[7] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
@@ -185,13 +186,14 @@ void findGoat(const list<Goat>& trp){
     string name;
     cout << "Enter goat name to search: ";
     cin >> name;
-    
-    auto it = find(trp.begin(), trp.end(), []( string name , const Goat& g){
-        return g.get_name() == name;
-    });
 
-    if(it != trp.end()){
-        cout << "Found Goat: "
+    auto it = find(trp.begin(), trp.end(), name);
+
+    if (it != trp.end()) {
+        cout << "Found Goat: " << it->get_name()
+             << " (" << it->get_age() << ", " << it->get_color() << ")" << endl;
+    } else {
+        cout << "Goat named '" << name << "' not found." << endl;
     }
 
 } 

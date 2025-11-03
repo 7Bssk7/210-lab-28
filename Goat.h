@@ -27,6 +27,9 @@ public:
     bool operator< (const Goat &other) const {
         return name < other.name;
     }
+    bool operator==(const string& uName) const {
+        return name == uName;
+    }
 };
 
 #endif
