@@ -209,7 +209,7 @@ void highAge(const list<Goat>& trp){
 
 }
 
-// findGoat() searches for a goat by name using 
+// findGoat() searches for a goat by name
 // arguments: goat list
 // returns: Outputs goat if it was found, otherwise says it was not found 
 void findGoat(const list<Goat>& trp){
@@ -228,6 +228,9 @@ void findGoat(const list<Goat>& trp){
 
 } 
 
+// allGoatSameAge() replaces all goats with a single goat using
+// arguments: goat list to modify
+// returns: none
 void allGoatSameAge(list<Goat>& trp){
 
     string name = trp.front().get_name();
@@ -238,22 +241,34 @@ void allGoatSameAge(list<Goat>& trp){
     fill(trp.begin(), trp.end(), g);
 }
 
+// sortGoat() sorts the goat list by name
+// arguments: goat list to modify
+// returns: none
 void sortGoat( list<Goat>& trp){
     trp.sort();
 
     cout << "The list is sorted!" << endl;
 }
 
+// shuffleGoat() randomly shuffles the goat list
+// arguments:  goat list to modify
+// returns: none
 void shuffleGoat( list<Goat>& trp){
+    // Convert list to vector
     vector<Goat> temp(trp.begin(), trp.end());
     
+    // Shuffle the vector
     shuffle(temp.begin(), temp.end(), default_random_engine());
 
+    // Copy shuffled vector back to list
     trp.assign(temp.begin(), temp.end());
 
     cout << "The list was shuffled!" << endl;
 }
 
+// reverseGoat() reverses the order of goats in the list
+// arguments: goat list to modify
+// returns: none
 void reverseGoat( list<Goat>& trp){
     
     reverse(trp.begin(), trp.end());
@@ -262,6 +277,9 @@ void reverseGoat( list<Goat>& trp){
     
 }
 
+// copyGoat() creates a copy of the goat list and displays it
+// arguments: original goat list, int size - number of goats to copy
+// returns: none
 void copyGoat( const list<Goat>& trp, int size){
     list<Goat> trip_copy(size);
 
