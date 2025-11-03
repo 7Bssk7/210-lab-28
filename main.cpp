@@ -16,6 +16,7 @@ void display_trip(list<Goat> trip);
 void averageAge(const list<Goat>& );
 void highAge( const list<Goat>& );
 void findGoat( const list<Goat>& );
+void allGoatSameAge(list<Goat>& );
 int main_menu();
 
 int main() {
@@ -76,6 +77,9 @@ int main() {
                 findGoat(trip);
                 break;      
             case 7:
+                cout << "Make all goats same name,age,color..\n";
+                allGoatSameAge(trip);
+                break;  
             
                 break;
             case 8:
@@ -109,7 +113,8 @@ int main_menu() {
     cout << "[4] Average age\n";
     cout << "[5] High age\n";
     cout << "[6] Find Goat.\n";
-    cout << "[7] Quit\n";
+    cout << "[7] Make all goats same name,age,color.\n";
+    cout << "[8] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
@@ -198,20 +203,12 @@ void findGoat(const list<Goat>& trp){
 
 } 
 
-void allGoatSameAge(const list<Goat>& trp){
-    int age;
-    cout << "You have the choice to make all the goats the same age (0-20)" << endl;
-    cout << "Your choice: ";
-    cin >> age;
-    while (age < 0 || age > 20) {
-        cout << "Invalid age. Please enter a value between 0 and 20: ";
-        cin >> age;
-    }
+void allGoatSameAge(list<Goat>& trp){
 
     string name = trp.front().get_name();
+    int age = trp.front().get_age();
     string color = trp.front().get_color();
 
     Goat g(name, age, color);
-    
     fill(trp.begin(), trp.end(), g);
 }

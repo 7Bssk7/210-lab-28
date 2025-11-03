@@ -1,2 +1,2 @@
 
-void findGoat(const list<Goat>& trp){
+    ifstream fin("names.txt");
