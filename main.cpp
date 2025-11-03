@@ -17,6 +17,7 @@ void averageAge(const list<Goat>& );
 void highAge( const list<Goat>& );
 void findGoat( const list<Goat>& );
 void allGoatSameAge(list<Goat>& );
+void sortGoat( list<Goat>& );
 int main_menu();
 
 int main() {
@@ -80,10 +81,9 @@ int main() {
                 cout << "Make all goats same name,age,color..\n";
                 allGoatSameAge(trip);
                 break;  
-            
-                break;
             case 8:
-            
+                cout << "Sort the list.\n";
+                sortGoat(trip);
                 break;
             case 9:
             
@@ -114,7 +114,8 @@ int main_menu() {
     cout << "[5] High age\n";
     cout << "[6] Find Goat.\n";
     cout << "[7] Make all goats same name,age,color.\n";
-    cout << "[8] Quit\n";
+    cout << "[8] Sort the list.\n";
+    cout << "[9] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
@@ -211,4 +212,10 @@ void allGoatSameAge(list<Goat>& trp){
 
     Goat g(name, age, color);
     fill(trp.begin(), trp.end(), g);
+}
+
+void sortGoat( list<Goat>& trp){
+    trp.sort();
+
+    cout << "The list is sorted!" << endl;
 }
