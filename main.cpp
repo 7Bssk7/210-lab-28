@@ -7,7 +7,7 @@
 #include "Goat.h"
 using namespace std;
 
-const int SZ_NAMES = 200, SZ_COLORS = 25;
+const int SZ_NAMES = 200, SZ_COLORS = 25, HIGH_AGE = 15;
 
 int select_goat(list<Goat> trip);
 void delete_goat(list<Goat> &trip);
@@ -67,8 +67,8 @@ int main() {
                 averageAge(trip);
                 break;  
             case 5:    
-                cout << "Average age.\n";
-                averageAge(trip);
+                cout << "High age.\n";
+                highAge(trip);
                 break;        
             default:
                 cout << "Invalid selection.\n";
@@ -148,5 +148,14 @@ void averageAge(const list<Goat>& trp){
     cout << "Average age: " << avgAge << endl;
 
     cout << endl;
+
+}
+
+void highAge(const list<Goat>& trp){
+    bool hAge = any_of(trp.begin(), trp.end(), []( const Goat& g){ 
+        return g.get_age() > HIGH_AGE;
+    });
+
+    cout << "There is a goat on the list that is over" << HIGH_AGE << " years old: " << (hAge ? "Yes" : "No") << endl;
 
 }
