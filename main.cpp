@@ -1,3 +1,5 @@
+// COMSC-210 | Lab 27 | Arkhip Finski
+// IDE used: Visual Studio
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -9,12 +11,14 @@
 #include "Goat.h"
 using namespace std;
 
+// Constants for array sizes and highest age 
 const int SZ_NAMES = 200, SZ_COLORS = 25, HIGH_AGE = 15;
 
 int select_goat(list<Goat> trip);
 void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
+// STL algorithms
 void averageAge(const list<Goat>& );
 void highAge( const list<Goat>& );
 void findGoat( const list<Goat>& );
@@ -179,6 +183,9 @@ int select_goat(list<Goat> trp) {
     return input;
 }
 
+// averageAge() calculates the average age of all goats in the list
+// arguments: the goat list to process
+// returns: Outputs the average age to console
 void averageAge(const list<Goat>& trp){
     double avgAge = accumulate(trp.begin(), trp.end(), 0.0, [](double sum, const Goat& g){
         return sum + g.get_age();
@@ -190,6 +197,9 @@ void averageAge(const list<Goat>& trp){
 
 }
 
+// highAge() checks if any goat is older than HIGH_AGE 
+// arguments: goat list
+// returns: Outputs if any goat is older than HIGH_AGE
 void highAge(const list<Goat>& trp){
     bool hAge = any_of(trp.begin(), trp.end(), []( const Goat& g){ 
         return g.get_age() > HIGH_AGE;
@@ -199,6 +209,9 @@ void highAge(const list<Goat>& trp){
 
 }
 
+// findGoat() searches for a goat by name using 
+// arguments: goat list
+// returns: Outputs goat if it was found, otherwise says it was not found 
 void findGoat(const list<Goat>& trp){
     string name;
     cout << "Enter goat name to search: ";
