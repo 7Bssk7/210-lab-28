@@ -197,3 +197,11 @@ void findGoat(const list<Goat>& trp){
     }
 
 } 
+
+void allGoatSameAge(const list<Goat>& trp){
+    int age;
+    cout << "You have the choice to make all the goats the same age (0-20)" << endl;
+    fill(trp.begin(), trp.end(), [age](  Goat& g){
+
+    });
+}
