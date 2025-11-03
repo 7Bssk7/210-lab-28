@@ -4,6 +4,8 @@
 #include <list>
 #include <algorithm>
 #include <numeric>
+#include <vector>
+#include <random>
 #include "Goat.h"
 using namespace std;
 
@@ -18,6 +20,7 @@ void highAge( const list<Goat>& );
 void findGoat( const list<Goat>& );
 void allGoatSameAge(list<Goat>& );
 void sortGoat( list<Goat>& );
+void shuffleGoat( list<Goat>& );
 int main_menu();
 
 int main() {
@@ -86,7 +89,8 @@ int main() {
                 sortGoat(trip);
                 break;
             case 9:
-            
+                cout << "Shuffle the list.\n";
+                shuffleGoat(trip);
                 break;
             case 10:
             
@@ -115,6 +119,7 @@ int main_menu() {
     cout << "[6] Find Goat.\n";
     cout << "[7] Make all goats same name,age,color.\n";
     cout << "[8] Sort the list.\n";
+    cout << "[8] Shuffle the list.\n";
     cout << "[9] Quit\n";
     cout << "Choice --> ";
     int choice;
@@ -218,4 +223,12 @@ void sortGoat( list<Goat>& trp){
     trp.sort();
 
     cout << "The list is sorted!" << endl;
+}
+
+void shuffleGoat( list<Goat>& trp){
+    vector<Goat> temp(trp.begin(), trp.end());
+    
+    shuffle(temp.begin(), temp.end(), default_random_engine());
+
+    cout << "The list was shuffled!" << endl;
 }
