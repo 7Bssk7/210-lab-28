@@ -21,6 +21,7 @@ void findGoat( const list<Goat>& );
 void allGoatSameAge(list<Goat>& );
 void sortGoat( list<Goat>& );
 void shuffleGoat( list<Goat>& );
+void reverseGoat( list<Goat>&);
 int main_menu();
 
 int main() {
@@ -93,7 +94,8 @@ int main() {
                 shuffleGoat(trip);
                 break;
             case 10:
-            
+                 cout << "Reverse the list.\n";
+                 reverseGoat(trip);
                 break;
             case 11:
             
@@ -233,4 +235,15 @@ void shuffleGoat( list<Goat>& trp){
     trp.assign(temp.begin(), temp.end());
 
     cout << "The list was shuffled!" << endl;
+}
+
+void reverseGoat( list<Goat>& trp){
+    vector<Goat> temp(trp.begin(), trp.end());
+    
+    shuffle(temp.begin(), temp.end(), default_random_engine());
+
+    trp.assign(temp.begin(), temp.end());
+
+    cout << "The list was shuffled!" << endl;
+    
 }
