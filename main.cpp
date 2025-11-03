@@ -22,6 +22,7 @@ void allGoatSameAge(list<Goat>& );
 void sortGoat( list<Goat>& );
 void shuffleGoat( list<Goat>& );
 void reverseGoat( list<Goat>&);
+void copyGoat( const list<Goat>& );
 int main_menu();
 
 int main() {
@@ -98,7 +99,8 @@ int main() {
                  reverseGoat(trip);
                 break;
             case 11:
-            
+                cout << "Copy the list.\n";
+                copyGoat(trip);
                 break;                
             default:
                 cout << "Invalid selection.\n";
@@ -123,7 +125,8 @@ int main_menu() {
     cout << "[8] Sort the list.\n";
     cout << "[9] Shuffle the list.\n";
     cout << "[10] Reverse the list.\n";
-    cout << "[11] Quit\n";
+    cout << "[11] Copy the list.\n";
+    cout << "[12] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
@@ -244,4 +247,18 @@ void reverseGoat( list<Goat>& trp){
 
     cout << "The list was reversed" << endl;
     
+}
+
+void copyGoat( const list<Goat>& trp){
+    list<Goat> trip_copy;
+
+    copy(trp.begin(), trp.end(), trip_copy.begin());
+
+    int i = 1;
+    for (auto gt: trip_copy)
+        cout << "\t" 
+             << "[" << i++ << "] "
+             << gt.get_name() 
+             << " (" << gt.get_age() 
+             << ", " << gt.get_color() << ")\n";
 }
