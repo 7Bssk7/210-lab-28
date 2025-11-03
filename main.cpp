@@ -15,6 +15,7 @@ void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 void averageAge(const list<Goat>& );
 void highAge( const list<Goat>& );
+void findGoat( const list<Goat>& );
 int main_menu();
 
 int main() {
@@ -69,7 +70,26 @@ int main() {
             case 5:    
                 cout << "High age.\n";
                 highAge(trip);
-                break;        
+                break; 
+            case 6:    
+                cout << "Find Goat.\n";
+                findGoat(trip);
+                break;      
+            case 7:
+            
+                break;
+            case 8:
+            
+                break;
+            case 9:
+            
+                break;
+            case 10:
+            
+                break;
+            case 11:
+            
+                break;                
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -160,3 +180,18 @@ void highAge(const list<Goat>& trp){
     cout << "There is a goat on the list that is over" << HIGH_AGE << " years old: " << (hAge ? "Yes" : "No") << endl;
 
 }
+
+void findGoat(const list<Goat>& trp){
+    string name;
+    cout << "Enter goat name to search: ";
+    cin >> name;
+    
+    auto it = find(trp.begin(), trp.end(), []( string name , const Goat& g){
+        return g.get_name() == name;
+    });
+
+    if(it != trp.end()){
+        cout << "Found Goat: "
+    }
+
+} 
