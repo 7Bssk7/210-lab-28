@@ -22,7 +22,7 @@ void allGoatSameAge(list<Goat>& );
 void sortGoat( list<Goat>& );
 void shuffleGoat( list<Goat>& );
 void reverseGoat( list<Goat>&);
-void copyGoat( const list<Goat>& );
+void copyGoat( const list<Goat>&, int );
 int main_menu();
 
 int main() {
@@ -100,7 +100,7 @@ int main() {
                 break;
             case 11:
                 cout << "Copy the list.\n";
-                copyGoat(trip);
+                copyGoat(trip, tripSize);
                 break;                
             default:
                 cout << "Invalid selection.\n";
@@ -249,8 +249,8 @@ void reverseGoat( list<Goat>& trp){
     
 }
 
-void copyGoat( const list<Goat>& trp){
-    list<Goat> trip_copy;
+void copyGoat( const list<Goat>& trp, int size){
+    list<Goat> trip_copy(size);
 
     copy(trp.begin(), trp.end(), trip_copy.begin());
 
