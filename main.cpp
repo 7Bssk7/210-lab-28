@@ -119,7 +119,7 @@ int main_menu() {
     cout << "[6] Find Goat.\n";
     cout << "[7] Make all goats same name,age,color.\n";
     cout << "[8] Sort the list.\n";
-    cout << "[8] Shuffle the list.\n";
+    cout << "[9] Shuffle the list.\n";
     cout << "[9] Quit\n";
     cout << "Choice --> ";
     int choice;
@@ -229,6 +229,8 @@ void shuffleGoat( list<Goat>& trp){
     vector<Goat> temp(trp.begin(), trp.end());
     
     shuffle(temp.begin(), temp.end(), default_random_engine());
+
+    trp.assign(temp.begin(), temp.end());
 
     cout << "The list was shuffled!" << endl;
 }
